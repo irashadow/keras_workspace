@@ -23,6 +23,12 @@ def vgg_preprocess(x):
     x = x - vgg_mean
     return x[:, ::-1] # reverse axis rgb->bgr
 
+def vgg_ft(out_dim):
+    vgg = Vgg16()
+    vgg.ft(out_dim)
+    model = vgg.model
+    return model
+
 
 class Vgg16():
     """The VGG 16 Imagenet model"""
